@@ -1,5 +1,5 @@
 import React from 'react'
-import CartProduct from './CartProduct'
+import CartSideBarItem from './CartSideBarItem'
 import { useSelector } from 'react-redux'
 
 const CartSidebar = () => {
@@ -8,7 +8,7 @@ const CartSidebar = () => {
   return (
     <>
         <div className="col-span-8 sm:col-span-8 md:col-span-5 lg:col-span-4 xxl:col-span-4">
-            {!product.length == 0 ?<CartProduct product={product}/> : ''}
+            {!product.length == 0 ?<CartSideBarItem product={product}/> : ''}
 
             <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4" >
                     

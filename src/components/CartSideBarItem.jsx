@@ -8,9 +8,9 @@ const CartProduct = ({product}) => {
     
     const handleIncrement = (item)=>{
         dispatch(increment(item, ++item.quantity))
-        if(item.quantity >= item.stock){
-            toast.error(`${item.name} out of stock`)
-        }
+            if(item.quantity >= item.stock){
+                toast.error(`${item.name} out of stock`)
+            }
     }
 
     const handleDecrement = (item)=>{

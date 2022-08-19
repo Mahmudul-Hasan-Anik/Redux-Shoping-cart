@@ -1,4 +1,4 @@
-import { ADD_TO_CART, DECREMENT, INCREMENT, REMOVE_CART, TOTAL_PRICE } from "./actionType"
+import { ADD_TO_CART, DECREMENT, INCREMENT, REMOVE_CART } from "./actionType"
 
 export const addCart = (value)=>{
     return {

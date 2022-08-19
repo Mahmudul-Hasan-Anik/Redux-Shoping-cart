@@ -1,5 +1,5 @@
 import React from 'react'
-import CartItem from './CartItem'
+import CartInitialProduct from './CartInitialProduct'
 import CartSidebar from './CartSidebar'
 
 const Cart = () => {
@@ -12,10 +12,10 @@ const Cart = () => {
         </div>
         <div className="grid grid-col-4 grid-flow-col gap-2">
             <div className='col-span-3'>
-            <CartItem/>
+               <CartInitialProduct/>
             </div>
             <div>
-            <CartSidebar/>
+               <CartSidebar/>
             </div>
         </div>
     </>
