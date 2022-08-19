@@ -8,7 +8,6 @@ const initialCart = {
 }
 
 export const cartReducer = (state = initialCart, action)=>{
-
     switch(action.type){
         case ADD_TO_CART :
             const newItem = action.payload.product
@@ -17,7 +16,7 @@ export const cartReducer = (state = initialCart, action)=>{
 
             return {
                 ...state,
-                cart: {...state.cart.cartItem, cartItem}
+                cart: {...state.cart, cartItem}
             }
         
         case INCREMENT:
@@ -41,7 +40,6 @@ export const cartReducer = (state = initialCart, action)=>{
                 ...state,
                 decrementQuantity
             }
-        
         default:
             return state
     }

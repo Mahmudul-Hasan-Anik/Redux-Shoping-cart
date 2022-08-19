@@ -4,7 +4,7 @@ import { increment,decrement } from '../Redux/Cart/actions'
 
 const CartProduct = ({product}) => {
     const productValue = useSelector((state)=> state)
-    console.log(productValue.cart.cartItem)
+
     const dispatch = useDispatch()
     
     const handleIncrement = (item)=>{
@@ -15,7 +15,6 @@ const CartProduct = ({product}) => {
         dispatch(decrement(item, --item.quantity))
     }
 
-    productValue.cart.cartItem.map((item)=>{console.log(item.quantity)})
   return (
     <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4" >
         {product.map((item)=>(

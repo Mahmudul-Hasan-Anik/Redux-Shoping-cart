@@ -4,7 +4,10 @@ import { useSelector } from 'react-redux'
 
 const CartSidebar = () => {
     const product = useSelector((state)=> state.cart.cartItem)
-console.log(product)
+    const productValue = useSelector((state)=> state)
+    console.log(productValue)
+    
+    productValue.cart.cartItem.reduce((acc,curr)=>console.log(acc + curr.quantity,'aaaaaaaaaaaaaaaabbbbbbbbbbb'),0)
   return (
     <>
         <div className="col-span-8 sm:col-span-8 md:col-span-5 lg:col-span-4 xxl:col-span-4">
@@ -18,7 +21,7 @@ console.log(product)
                         >
                             <div className="text-xl font-semibold">
                                 <p>Total Item</p>
-                                <p className="text-5xl">{product ? product.length : ''}</p>
+                                <p className="text-5xl">{product.reduce((prev,curr) => prev + curr.quantity , 0)}</p>
                             </div>
                         </div>
                     </div>
@@ -31,7 +34,7 @@ console.log(product)
                             <div className="text-xl font-semibold">
                                 <p>Total Price</p>
                                 <p className="text-5xl">
-                                  0
+                                  {product.reduce((prev, curr)=> prev + curr.price * curr.quantity, 0)}
                                 </p>
                             </div>
                         </div>
