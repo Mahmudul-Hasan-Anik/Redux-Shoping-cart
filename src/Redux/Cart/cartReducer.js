@@ -1,10 +1,29 @@
-import { ADD_TO_CART, DECREMENT, INCREMENT, TOTAL_PRICE } from "./actionType";
+import { ADD_TO_CART, DECREMENT, INCREMENT } from "./actionType";
 
 const initialCart = {
+    ProductList : [
+        {
+            _id: 'vV9icnFKRr',
+            name: 'Asus Vivobook X515MA',
+            price: 35500,
+            stock: 10
+        },   
+        {
+            _id: 'ajBDwEsqLw',
+            name: 'Dell E1916HV 18.5 Inch',
+            price: 9300,
+            stock: 5
+        },
+        {
+            _id: 'zmRObu3HLN',
+            name: 'Canon Eos 4000D 18MP',
+            price: 36500,
+            stock: 12
+        },
+    ],
     cart : {
         cartItem: [],
-    },
-    totalPrice: 0
+    }
 }
 
 export const cartReducer = (state = initialCart, action)=>{
@@ -38,7 +57,7 @@ export const cartReducer = (state = initialCart, action)=>{
             });
             return {
                 ...state,
-                decrementQuantity
+                decrementQuantity 
             }
         default:
             return state

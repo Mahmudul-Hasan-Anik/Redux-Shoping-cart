@@ -1,9 +1,9 @@
 import React from 'react'
-import { Product } from '../Data/ProductData'
 import { addCart } from '../Redux/Cart/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 const CartItem = () => {
+    const initialProduct = useSelector((state)=> state.cart.ProductList)
     const dispatch = useDispatch()
 
     const handleCart = (item)=>{
@@ -15,7 +15,7 @@ const CartItem = () => {
             <div className="grid grid-cols-12 gap-6">
                 <div className="col-span-12 sm:col-span-12 md:col-span-12 lg:col-span-12 xxl:col-span-8">
 
-                    {Product.map((item)=>(
+                    {initialProduct.map((item)=>(
 
                     <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4" key={item._id}>
                         <div className="flex justify-between px-4 items-center">
@@ -27,6 +27,7 @@ const CartItem = () => {
                                 <button
                                     className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center"
                                     onClick={()=>handleCart(item)}
+                                    
                                 >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"

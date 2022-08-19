@@ -36,8 +36,3 @@ export const decrement = (value)=>{
     }
 }
 
-export const totalPrice = ()=>{
-    return {
-        type: TOTAL_PRICE
-    }
-}

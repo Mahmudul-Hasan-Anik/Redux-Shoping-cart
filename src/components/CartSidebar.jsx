@@ -3,11 +3,8 @@ import CartProduct from './CartProduct'
 import { useSelector } from 'react-redux'
 
 const CartSidebar = () => {
-    const product = useSelector((state)=> state.cart.cartItem)
+    const product = useSelector((state)=> state.cart.cart.cartItem)
     const productValue = useSelector((state)=> state)
-    console.log(productValue)
-    
-    productValue.cart.cartItem.reduce((acc,curr)=>console.log(acc + curr.quantity,'aaaaaaaaaaaaaaaabbbbbbbbbbb'),0)
   return (
     <>
         <div className="col-span-8 sm:col-span-8 md:col-span-5 lg:col-span-4 xxl:col-span-4">

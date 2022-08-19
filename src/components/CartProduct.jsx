@@ -1,19 +1,22 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { increment,decrement } from '../Redux/Cart/actions'
+import { toast } from 'react-toastify';
 
 const CartProduct = ({product}) => {
-    const productValue = useSelector((state)=> state)
-
     const dispatch = useDispatch()
     
     const handleIncrement = (item)=>{
         dispatch(increment(item, ++item.quantity))
+        if(item.quantity >= item.stock){
+            toast.error(`${item.name} out of stock`)
+        }
     }
 
     const handleDecrement = (item)=>{
         dispatch(decrement(item, --item.quantity))
     }
+
 
   return (
     <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4" >
@@ -26,7 +29,7 @@ const CartProduct = ({product}) => {
                 <div
                     className="flex flex-row space-x-2 w-full items-center rounded-lg"
                 >
-                <button className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center" onClick={()=>handleDecrement(item)}>
+                <button className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center" onClick={()=>handleDecrement(item)} disabled={item.quantity <= 1}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-4 w-4"
@@ -43,7 +46,7 @@ const CartProduct = ({product}) => {
                         </svg>
                     </button>
                     <p>{item.quantity}</p>
-                    <button className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center" onClick={()=>handleIncrement(item)}>
+                    <button  className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-1 px-1 rounded-full inline-flex items-center" onClick={()=>handleIncrement(item)} disabled={item.quantity >= item.stock}>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-4 w-4"
